@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+
+  <title>Bolaño's Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .sidebar-left {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    .logo img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .menu-icon {
+      font-size: 40px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1001;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    .link-icons {
+      position: fixed;
+      top: 9%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .link-icons img {
+      width: 66px;
+      height: 66px;
+      cursor: pointer;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .link-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-family: 'Alex Brush', cursive;
+      font-weight: 200;
+      font-size: 6em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.5em;
+    }
+
+    footer {
+  width: 100%;
+  background: linear-gradient(to right, #111, #222); /* Sleek gradient background */
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9em;
+  position: relative;
+  margin-top: 50px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+    .footer-button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: black;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.footer-button:hover {
+  background-color: #a70000; 
+  color: white;
+}
+
+
+    .container {
+      background-color: #444343;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .description {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .description-lines {
+      text-align: center;
+      margin: 8px 0;
+    }
+
+    .chapter-buttons {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px; 
+  margin: 20px 0;
+  flex-wrap: wrap; 
+}
+
+
+    .chapter-buttons a {
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px; 
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  font-size: 0.9em; 
+}
+
+.chapter-buttons a:hover {
+  background-color: #c0f500;
+}
+
+.chapter-buttons {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap; 
+}
+
+    .image-placeholder {
+      background-color: #444343;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .image-placeholder img {
+      width: 400px;
+      height: 400px;
+      opacity: 1;
+      margin-bottom: 10px;
+    }
+
+    .image-placeholder p {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-left {
+        left: 10px;
+      }
+
+      .logo img {
+        height: 60px;
+      }
+
+      .menu-icon {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left sidebar -->
+  <div class="sidebar-left">
+    <div class="logo">
+      <img src="photos/Logo.png" alt="Logo">
+    </div>
+    <div class="menu-icon">&#9776;</div>
+    <!-- Burger Menu -->
+    <div class="menu">
+      <a href="Coke.html#zen">Zen</a>
+      <a href="Coke.html#zenless">Zenless</a>
+      <a href="Coke.html#faq">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Right side social icons -->
+  <div class="link-icons">
+    <a href="https://www.youtube.com/channel/UCLs1sZmEbx2WwKjmp_eYMdA" target="_blank">
+      <img src="photos/youtube.png">
+    </a>
+    <a href="https://web.facebook.com/jennus.bolano/" target="_blank">
+      <img src="photos/facebook.png">
+    </a>
+    <a href="https://www.instagram.com/bublyares/" target="_blank">
+      <img src="photos/instagram.png">
+    </a>
+    <a href="https://www.tiktok.com/@bruno_bucciarati27?lang=en" target="_blank">
+      <img src="photos/tiktok.png">
+    </a>
+  </div>
+
+  <header>
+    <h1 id="main">Bolaño’s Portfolio</h1>
+    <p>-Web Development-</p>
+  </header>
+
+  <div class="container">
+    <div class="description">Description</div>
+    <div class="description-lines">
+      When I was born, my parents were unsure of what to name me. To solve this, they combined their names and named me Jennus. My mother’s name, Jennylyn, is derived from Jenny, meaning "fair one," and Lyn, meaning "lake." My father’s name, Julius, came from a Latin word meaning "youthful." Thus, my name, Jennus, carries the essence of both my parents—a blend of beauty, serenity, and youthful energy, making it uniquely meaningful.
+    </div>
+
+    <div class="chapter-buttons">
+      <a href="Inasal.html#about">Ch. 1 - About ⌄</a>
+      <a href="Inasal.html#portfolio">Ch. 2 - Portfolio ⌄</a>
+      <a href="Inasal.html#skills">Ch. 3 - Skills ⌄</a>
+      <a href="Inasal.html#experience">Ch. 4 - Experience ⌄</a>
+      <a href="Inasal.html#contacts">Ch. 5 - Contacts ⌄</a>
+    </div>
+    
+
+    <div class="image-placeholder">
+      <img src="photos/nesfruta.png" alt="Image">
+      <p>Bolaño, Jennus Mark Dustin B., IT student</p>
+    </div>
+  </div>
+
+  <footer>
+    <a href="#main" class="footer-button">Back to Top</a>
+    <p>&copy; 2025 Bolaño's Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Burger Menu Toggle Script -->
+  <script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.querySelector('.menu');
+
+    menuIcon.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>

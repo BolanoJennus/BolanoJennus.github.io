@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+
+  <title>Bolaño's Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      padding-top: 100px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    header.scrolled {
+      padding: 10px 30px;
+      border-bottom: 2px solid #444;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 60px;
+      transition: height 0.3s ease;
+    }
+
+    header.scrolled .logo img {
+      height: 40px;
+    }
+
+    .menu-icon {
+      font-size: 40px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .menu {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1001;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .nav-buttons button {
+      background-color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #c0f500;
+    }
+
+    .link-buttons {
+      position: fixed;
+      top: 5%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .link-buttons img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .link-buttons img:hover {
+      transform: scale(1.1);
+    }
+
+    .container {
+      background-color: #333;
+      padding: 40px;
+      margin: 0 auto;
+      max-width: 1000px;
+      border-radius: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2em;
+  margin-bottom: 15px;
+  font-weight: 400; /* Adjusted to make it less bold */
+}
+
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+    article p {
+      margin-bottom: 10px;
+    }
+
+    article ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #cccccc;
+    }
+
+    .footer-button {
+      display: inline-block;
+      background-color: #ffffff;
+      color: black;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .footer-button:hover {
+      background-color: #a70000;
+      color: white;
+    }
+
+    .description {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .description-lines {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .image-placeholder {
+      text-align: center;
+    }
+
+    .image-placeholder img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+
+    .image-placeholder p {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-buttons {
+        flex-wrap: wrap;
+      }
+
+      .link-buttons {
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="header-left">
+      <div class="menu-icon">&#9776;</div>
+      <div class="menu">
+        <a href="Coke.html#zen">Zen</a>
+        <a href="Coke.html#zenless">Zenless</a>
+        <a href="Coke.html#faq">FAQ</a>
+      </div>
+
+      <div class="logo">
+        <img src="photos/Logo.png" alt="Logo" />
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button onclick="scrollToSection('about')">Ch. 1 - About ⌄</button>
+      <button onclick="scrollToSection('portfolio')">Ch. 2 - Portfolio ⌄</button>
+      <button onclick="scrollToSection('skills')">Ch. 3 - Skills ⌄</button>
+      <button onclick="scrollToSection('experience')">Ch. 4 - Experience ⌄</button>
+      <button onclick="scrollToSection('contacts')">Contacts ⌄</button>
+    </div>
+
+    <div class="link-buttons">
+      <a href="https://www.youtube.com/channel/UCLs1sZmEbx2WwKjmp_eYMdA" target="_blank">
+        <img src="photos/youtube.png" alt="YouTube">
+      </a>
+      <a href="https://web.facebook.com/jennus.bolano/" target="_blank">
+        <img src="photos/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/bublyares/" target="_blank">
+        <img src="photos/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@bruno_bucciarati27?lang=en" target="_blank">
+        <img src="photos/tiktok.png" alt="TikTok">
+      </a>
+    </div>
+  </header>
+
+  <h1 id="head"></h1>
+
+  <div class="container">
+
+    <div class="description">Description</div>
+    <div class="description-lines">
+      When I was born, my parents were unsure of what to name me. To solve this, they combined their names and named me Jennus. My mother’s name, Jennylyn, is derived from Jenny, meaning "fair one," and Lyn, meaning "lake." My father’s name, Julius, came from a Latin word meaning "youthful." Thus, my name, Jennus, carries the essence of both my parents—a blend of beauty, serenity, and youthful energy, making it uniquely meaningful.
+    </div>
+
+    <div class="image-placeholder">
+      <img src="photos/softou&wetou.jpg" alt="Image">
+      <p>Bolaño, Jennus Mark Dustin B., IT student</p>
+      <br><br><br>
+    </div>
+
+    <section id="about">
+      <h2>Chapter 1: About</h2>
+      <div class="description-lines">
+        My name is Jennus Bolaño. I'm 18 years old. I live in Parkland, Quezon City, and I study Bachelor of Science in Information Technology. I don't smoke; I don't drink. I sleep at exactly 11 in the evening and make sure I get 8 hours of sleep, no matter what. Before going to bed, I always write a story and check a few models of cars. I'm just someone who wants to live a quiet life. I avoid unnecessary conflict and focus on my studies and personal interests. I strive in order to achieve my goals, and I believe in maintaining a balanced life. That’s how I deal with life, and I am content with it.
+      </div>
+      <div class="description-lines">
+        Names carry weight. They hold echoes of history, culture, and identity—and mine is no exception. My full name, Mark Dustin Bolaño, is more than a simple arrangement of syllables. It's a reflection of myth, strength, and legacy.
+      </div>
+      <div class="description-lines">
+        The name Mark traces back to Marcus, which itself is derived from Mars, the Roman God of War. In ancient mythology, Mars wasn’t merely a symbol of violence—he represented discipline, resilience, and the protective strength of a soldier. As the father of Romulus and Remus, the legendary founders of Rome, Mars was also tied to the birth of civilization itself. That connection has always made me feel as though I carry, in some small way, the spirit of a warrior—one who stands firm in the face of adversity, grounded by purpose and determination.
+      </div>
+      <div class="description-lines">
+        Dustin, my second name, has roots in the Old Norse name Thorstien, meaning “Thor’s Stone.” Thor—the god of thunder, lightning, and storms—was the defender of Asgard, wielding his hammer Mjölnir with unmatched force. The idea of being linked to Thor’s stone, a symbol of raw power and divine protection, reminds me of endurance. It’s not just about strength, but about standing tall during the storm—weathering trials with resilience and inner fortitude.
+      </div>
+      <div class="description-lines">
+        My surname, Bolaño, offers yet another layer of depth. Historically, "bolaño" means cannonballs—objects of war, used in infantry and maritime battles during the era of buccaneers and privateers. It calls to mind thundering ships, gunpowder smoke, and the calculated chaos of battle at sea. The name is bold, forceful, and unflinching. But there's also a literary dimension to it. I share this name with Roberto Bolaño, the brilliant Chilean novelist whose works explore exile, resistance, and the fragmented search for meaning. His voice brought power to the page, proving that not all battles are fought with steel—some are fought with stories, memory, and words.
+      </div>
+      <div class="description-lines">
+        My academic journey began at Maligaya Elementary School, where I first discovered the importance of learning and discipline. Continuing at Maligaya High School, I deepened my understanding and began shaping my goals.
+
+For Senior High, I moved to Divine Grace School, where I was challenged to grow—both intellectually and personally. It was a period of transition that prepared me for the future.
+
+Later, at Our Lady of Fatima University (OLFU), I embraced a broader world of ideas and opportunities. There, I not only gained knowledge but also developed a clearer sense of purpose.
+
+Each step of my education laid a foundation, helping me become someone who values growth, learning, and the journey itself.
+      </div>
+      <br>
+    </section>
+
+    <section id="portfolio">
+      <h2>Chapter 2: Portfolio</h2>
+      <div class="description-lines">
+        When I first set out to build this portfolio, I had a clear vision in mind. I wanted a seamless, modern experience—something with a sticky feature that would allow the content to flow within a single HTML page. My goal was to create an interactive digital copy, smooth in its transitions, where every scroll felt intentional and cohesive.
+      </div>
+      <div class="description-lines">
+        But as I began translating my idea into code, I quickly realized that implementing advanced transitions and sticky behavior between multiple sections on a single HTML file was far more complex than I anticipated. Especially for someone still early in their web development journey, the deeper I dove into the syntax and structure, the more challenging it became to maintain consistency across my content without breaking the flow or running into layout bugs.
+      </div>
+      
+      <div class="description-lines">So I decided to improvise.</div>
+      <article>
+        <h3>Media</h3>
+        <img src="photos/1.jpg" width="390" alt="Portfolio Image 1">
+        <h3>Layout</h3>
+        <img src="photos/2.png" width="390" alt="Portfolio Image 2">
+
+        <div class="description-lines">
+          Rather than trying to force everything into one file, I split the website into two separate HTML files. The first HTML now serves as the container for my digital copy’s header—a clean introduction that presents my name, navigation links, and initial design elements. The second HTML file houses the entire body of the portfolio—the content-rich sections like my story, portfolio chapters, and contact information.
+        </div>
+        <br>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Chapter 3: Skills</h2>
+      <article>
+        <ul>
+          <li>Basics of HTML and CSS</li>
+          <li>Fundamentals of C Programming</li>
+          <li>Game Design & Mechanics</li>
+          <li>Creative Writing and Story Making</li>
+          <li>Arts (digital and traditional)</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="description-lines">
+My journey into web development began with the basics of HTML and CSS. Learning how to structure content with HTML and style it using CSS opened up an entirely new world of digital creativity for me. I began to see websites not just as static pages, but as living projects that could be designed, built, and improved upon. Even the smallest lines of code had the power to change a page’s appearance, flow, or function. Though I’m still learning more advanced techniques, this foundation has allowed me to create personal projects—like this very portfolio—where I can apply my skills with pride.
+    </div>
+    <div class="description-lines">
+Through my academic studies, I was introduced to the fundamentals of C programming—a language that taught me the value of logic, precision, and problem-solving. Learning C challenged me to think differently; it wasn’t just about writing commands, but about understanding how systems work behind the scenes. From loops and conditionals to memory handling, C gave me a glimpse into how software operates at its core, and it helped me build a structured mindset that benefits all areas of my work.
+    </div>
+    <div class="description-lines">
+One of my greatest passions lies in game design and mechanics. I’ve always been fascinated by how games work—the rules, the balance, the way players interact with a system. Creating game concepts, designing gameplay loops, and crafting challenges are things that excite me deeply. Whether I’m developing digital prototypes or simply drawing out ideas, I enjoy the process of building immersive experiences. It’s a skill that lets me combine logic with creativity, storytelling with interactivity.
+    </div>
+    <div class="description-lines">
+My love for creative writing and storytelling has always been a central part of who I am. I see stories as more than entertainment—they’re powerful tools for connection and reflection. Whether I’m crafting narratives for a game or writing autobiographical content like this portfolio, I aim to convey emotion, purpose, and imagination. Writing gives my ideas structure, and it gives my skills personality.
+    </div>
+    <div class="description-lines">
+Art has been a lifelong companion—both in traditional forms, like sketching and painting, and in digital formats, where I explore graphic design, illustration, and visual storytelling. I find joy in turning blank spaces into something expressive, whether it’s a pencil drawing or a digital layout. This artistic ability not only strengthens my creative identity but also supports my work in design, game development, and storytelling. It’s the bridge between what I imagine and what others can see.
+    </div>
+    <br><br>
+
+    <section id="experience">
+      <h2>Chapter 4: Experience</h2>
+      <article>
+        <ul>
+          <li>Created personal game development projects (unfinished)</li>
+          <li>Experienced working as a volunteer in Red Cross for Work Immersion</li>
+          <li>Experience in solo and collaborative coding environments</li>
+          <li>Certification: Very Satisfactory Award</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="description-lines">
+      Experience, for me, has always been a journey of trial, error, and progress. While not every endeavor I’ve started has reached the finish line, each one has left behind valuable lessons that continue to shape the way I work and create.
+    </div>
+    <div class="description-lines">
+      One of the most formative parts of my experience has been working on personal game development projects. Though many remain unfinished, these projects were never failures—they were stepping stones. Each concept I tried to build, each line of code I wrote, taught me something new about design, programming, and the challenges of bringing ideas to life. These unfinished works gave me hands-on practice in areas like logic building, UI planning, and gameplay mechanics. More importantly, they sparked a deeper passion to keep learning and to one day turn those early drafts into completed visions.</div>
+    <div class="description-lines">
+      During my Senior High School years, I had the opportunity to volunteer at the Red Cross as part of my Work Immersion program. This was my first experience working in a real-world environment—an experience that taught me discipline, responsibility, and the importance of teamwork. Though it wasn’t directly tied to technology or programming, it taught me something equally valuable: how to adapt, communicate, and contribute to a cause larger than myself. It was a humbling and eye-opening chapter in my growth, reminding me that soft skills are just as important as technical ones.</div>
+    <div class="description-lines">
+      Throughout my academic journey and personal projects, I’ve had experience in both solo and collaborative coding environments. When working alone, I learned how to problem-solve independently, organize my workflow, and take ownership of my ideas. In group settings, I practiced collaboration—sharing code, giving and receiving feedback, and syncing my pace with others to reach shared goals. These experiences showed me that while independence builds confidence, teamwork fosters innovation.</div>
+    <div class="description-lines">
+      Alongside these experiences, I was honored to receive a Very Satisfactory Award, a certification that affirmed my effort and commitment during my time in school. While awards aren’t the only measure of growth, they serve as a reminder that hard work does get noticed—and that every small achievement matters.</div>
+      <br><br><br><br>
+    <footer>
+      <section id="contacts">
+        <h2>Contacts</h2>
+        <img src="photos/plainlogo.png" width="150" alt="Footer Logo">
+        <p><strong>Email:</strong> <a href="mailto:jbbolano9168qc@student.fatima.edu.ph">jbbolano9168qc@student.fatima.edu.ph</a></p>
+        <p><strong>Phone:</strong> 091-6323-1494</p>
+        <p><strong>Address:</strong> Lot 18, Blk 20 Capitol Parkland, Quezon City</p>
+        <a href="#head" class="footer-button">Back to Top</a>
+        <a href="index.html" class="footer-button">Home</a>
+        <p style="margin-top: 15px;">&copy; 2025 Jennus Bolaño</p>
+      </section>
+    </footer>
+  </div>
+
+  <script>
+    const header = document.getElementById("header");
+    const menuIcon = document.querySelector(".menu-icon");
+    const menu = document.querySelector(".menu");
+
+    menuIcon.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
